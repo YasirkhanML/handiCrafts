@@ -1,0 +1,1495 @@
+/* GLOBAL CSS - EDIT ONLY IF NECESSORY*/
+
+/* General Styles */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Untitled Sans";
+  color: #333;
+  letter-spacing: 1.5px;
+}
+
+/* h1, h2, h3, h4, h5, h6 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+} */
+
+/* Navbar */
+#navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: transparent;
+  transition: all 0.5s ease-in-out;
+  padding: 20px 0;
+}
+
+#navbar.scrolled {
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 10px 0;
+}
+
+#navbar.scrolled .navbar-brand img {
+  width: 60px;
+  height: 60px;
+  transition: all 0.5s ease-in-out;
+}
+
+#navbar.scrolled .nav-link{
+  font-size: 15px;
+  padding-left: 10px;
+  padding-right: 10px;
+  transition: all 0.5s ease-in-out;
+}
+
+/* #navbar.scrolled .d-flex:not(.d-flex.btn){
+  width: 200px;
+  height: 30px;
+  transition: all 0.5s ease-in-out;
+} */
+
+/* Navbar animations */
+.navbar-brand, .navbar-nav .nav-item, .d-flex, .nav-link.cart {
+  animation: fadeDown 0.8s ease-in-out forwards;
+  opacity: 0;
+}
+
+.nav-link:not(.nav-link.cart) {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.navbar-nav .nav-item:nth-child(1) { animation-delay: 1.4s; }
+.navbar-nav .nav-item:nth-child(2) { animation-delay: 1.6s; }
+.navbar-nav .nav-item:nth-child(3) { animation-delay: 1.8s; }
+.navbar-nav .nav-item:nth-child(4) { animation-delay: 2s; }
+.navbar-nav .nav-item:nth-child(5) { animation-delay: 2.2s; }
+
+@keyframes fadeDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+
+.d-flex.visible, .nav-link.cart.visible {
+  opacity: 1; /* Fade in */
+  transform: translateY(0); /*Slide down*/
+}
+
+/* Animation for links */
+.nav-link {
+  font-size: 20px;
+  transition: all 0.3s ease-in-out;
+}
+
+.nav-link.cart {
+  font-size: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+  transition: all 0.3s ease-in-out;
+}
+
+.nav-link:not(.nav-link.cart)::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background: white;
+  bottom: 0;
+  left: 0;
+  visibility: hidden; /* Hide it completely */
+  transition: width 0.3s ease-in-out, visibility 0s linear 0.3s;
+}
+
+.nav-link.active:not(.nav-link.cart)::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background: white;
+  bottom: 0;
+  left: 0;
+  visibility: hidden; /* Hide it completely */
+  transition: width 0.3s ease-in-out, visibility 0s linear 0.3s;
+}
+
+
+.nav-link:hover:not(.nav-link.cart)::after {
+  width: 100%;
+  visibility: visible; /* Make it visible on hover */
+  transition: width 0.3s ease-in-out;
+}
+
+/* Dropdown Menu */
+.dropdown-menu {
+  display: block;
+  opacity: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  visibility: hidden;
+  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out, transform 0.3s ease-in-out;
+  transform: translateY(-20px);
+}
+
+.dropdown-menu.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.dropdown-item {
+  color: white !important;
+  padding: 10px 20px;
+  transition: all 0.3s ease-in-out;
+}
+
+.dropdown-item:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Cart icon */
+.bi-cart-fill {
+  font-size: 1.5rem;
+  color: white;
+  transition: transform 0.3s ease-in-out;
+}
+
+.bi-cart-fill:hover {
+  transform: scale(1.2);
+}
+
+.cart {
+  position: relative;
+}
+
+.badge {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  font-size: 0.75rem;
+}
+
+.global-overlay-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Dark semi-transparent overlay */
+}
+
+.global-overlay-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+}
+
+.global-overlay-h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.global-overlay-p {
+  font-size: 1.2rem;
+}
+
+/* HOME PAGE CSS STARTS HERE */
+/* Carousel Section */
+.carousel-section {
+  background: linear-gradient(135deg, #000428, #004e92);
+  animation: fadeIn 1s ease-in-out forwards;
+  opacity: 0;
+  position: relative;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.carousel-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+.carousel-item img {
+  height: 100vh;
+  object-fit: cover;
+}
+
+.carousel-caption {
+  padding: 20px;
+  z-index: 2;
+}
+
+.carousel-caption h5 {
+  font-size: 3rem;
+  font-weight: bold;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+}
+
+.carousel-caption p {
+  font-size: 1.5rem;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+}
+
+.btn-primary {
+  background: #004e92;
+  border: none;
+  padding: 10px 30px;
+  font-size: 1.2rem;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.btn-primary:hover {
+  background: #000428;
+  transform: translateY(-5px);
+}
+
+.scroll-indicator {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+}
+
+.scroll-indicator span {
+  display: block;
+  width: 20px;
+  height: 20px;
+  border-bottom: 2px solid #fff;
+  border-right: 2px solid #fff;
+  transform: rotate(45deg);
+  animation: scroll 2s infinite;
+}
+
+@keyframes scroll {
+  0% {
+    opacity: 0;
+    transform: rotate(45deg) translate(-10px, -10px);
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: rotate(45deg) translate(10px, 10px);
+  }
+}
+
+/* Icons Section */
+.icons-section {
+  background: #f8f9fa;
+}
+
+.icons-section p {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: #555;
+  max-width: 800px;
+  margin: 0 auto 2rem;
+  padding: 0 20px;
+  text-align: center;
+  font-style: italic;
+}
+
+.icon-small {
+  font-size: 2.5rem;
+  color: #333;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.icon-small:hover {
+  transform: scale(1.2);
+  color: #004e92;
+}
+
+.counter {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #004e92;
+  transition: color 0.3s ease;
+}
+
+/* Featured Collection & Products */
+.featured-collection, .featured-products {
+  background: #f8f9fa; /* Light background for contrast */
+  padding: 60px 0; /* Add padding for better spacing */
+}
+
+.featured-collection .card, .featured-products .card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid #ddd; /* Softer border color */
+  border-radius: 15px; /* Rounded corners */
+  overflow: hidden;
+  background: #fff; /* White background for cards */
+}
+
+.featured-collection .card:hover, .featured-products .card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1); /* Softer shadow */
+}
+
+.card-img-top {
+  border-bottom: 1px solid #ddd; /* Add a subtle border below the image */
+}
+
+.card-body {
+  padding: 20px; /* Add padding for better spacing */
+  text-align: center; /* Center align text */
+}
+
+.card-title {
+  font-size: 1.25rem; /* Larger title font size */
+  margin-bottom: 10px; /* Spacing below title */
+  color: #333; /* Darker text color */
+}
+
+.card-text {
+  font-size: 0.9rem; /* Slightly smaller text */
+  color: #666; /* Softer text color */
+  margin-bottom: 15px; /* Spacing above button */
+}
+
+/* Featured Products Button */
+.btn-primary {
+  background-color: #007bff; /* Bootstrap primary color */
+  border: none;
+  padding: 10px 20px; /* Button padding */
+  border-radius: 5px; /* Rounded button corners */
+  font-size: 0.9rem; /* Button text size */
+  transition: background-color 0.3s ease; /* Smooth hover effect */
+}
+
+.btn-primary:hover {
+  background-color: #0056b3; /* Darker shade on hover */
+}
+
+/* Featured Collection Animated Link */
+.animated-link {
+  color: #007bff; /* Link color */
+  text-decoration: none; /* Remove underline */
+  font-weight: 600; /* Bold text */
+  position: relative;
+  display: inline-block;
+  transition: color 0.3s ease;
+}
+
+.animated-link::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background: #007bff; /* Underline color */
+  bottom: -5px;
+  left: 0;
+  transform: scaleX(0); /* Start with no width */
+  transform-origin: bottom right;
+  transition: transform 0.3s ease;
+}
+
+.animated-link:hover {
+  color: #0056b3; /* Darker color on hover */
+}
+
+.animated-link:hover::after {
+  transform: scaleX(1); /* Full width on hover */
+  transform-origin: bottom left;
+}
+
+/* Owner Message */
+.owner-message {
+  background: #f8f9fa;
+  position: relative;
+  overflow: hidden;
+}
+
+.owner-message::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #004e92, #000428);
+  opacity: 0.1;
+  z-index: 1;
+}
+
+.owner-message .container {
+  position: relative;
+  z-index: 2;
+}
+
+/* Client Logos */
+.client-logos img {
+  filter: grayscale(100%);
+  transition: filter 0.3s ease, transform 0.3s ease;
+  animation: float 3s ease-in-out infinite;
+}
+
+.client-logos img:hover {
+  filter: grayscale(0%);
+  transform: scale(1.1);
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+/* HOME PAGE CSS ENDS HERE */
+
+/* GLOBAL CSS */
+/* Footer */
+.footer {
+  background: #333;
+  padding: 50px 0;
+}
+
+.footer a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  color: #ccc;
+}
+
+.payment-icons i {
+  font-size: 2rem;
+  margin-right: 10px;
+}
+
+/* contact page cs Starts here */
+
+.yahya-background-section {
+  position: relative;
+  height: calc(100vh - 30px);
+  background-image: url('imgs/pic1.jpg'); 
+  background-size: cover;
+  background-position: center;
+}
+
+.yahya-container-fluid {
+  background-color: #f7f7f7;
+  padding: 50px 0;
+}
+
+.yahya-card {
+  border-radius: 10px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.yahya-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+
+.yahya-icon-container {
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 40px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.yahya-icon-container:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+.yahya-icon-wrapper svg {
+  width: 35px !important;
+  color: #000000 !important;
+  margin-bottom: 20px;
+}
+
+.yahya-h3 {
+  font-size: 1.8rem;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.yahya-p1,
+.yahya-p2 {
+  font-size: 1.2rem;
+  color: #666;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+.yahya-phone-number a {
+  display: inline-block;
+  margin: 5px 0;
+  font-size: 1.2rem;
+  color: #007bff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.yahya-phone-number a:hover {
+  color: #0056b3;
+}
+
+.yahya-p3 {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #333;
+  margin: 40px 0;
+}
+
+.yahya-map-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.yahya-iframe {
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.yahya-icon-container {
+  width: 100%;
+  max-width: 500px;
+}
+
+@media (max-width: 768px) {
+  .yahya-h3 {
+    font-size: 1.5rem;
+  }
+
+  .yahya-p1,
+  .yahya-p2 {
+    font-size: 1.1rem;
+  }
+
+  .yahya-p3 {
+    font-size: 2rem;
+  }
+
+  .yahya-icon-container {
+    max-width: 90%;
+    padding: 30px;
+  }
+}
+
+.yahya-animate-text {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 1s ease forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.yahya-map-container iframe {
+  width: 100%;
+  max-width: 1000px;
+  height: 450px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Contact Section Container */
+.yahya-contact-section {
+  padding: 60px 30px;
+  margin-top: 50px;
+  border-radius: 12px;
+  background-color: #ffffff; /* Simple white background */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  border: 1px solid #f1f1f1; /* Soft border for subtle separation */
+}
+
+/* Title of Contact Form */
+.yahya-form-title {
+  font-size: 2.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  letter-spacing: 2px;
+  color: #333;
+  text-align: center; /* Center align the form title */
+}
+
+/* Description under Contact Form Title */
+.yahya-form-description {
+  font-size: 1.3rem;
+  color: #777;
+  margin-bottom: 30px;
+  font-style: italic;
+  text-align: center;
+}
+
+/* Form Input Fields Styling */
+.yahya-form-group {
+  margin-bottom: 20px; 
+  text-align: left;
+}
+
+.yahya-form-label {
+  font-size: 1.1rem;
+  color: #333;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.yahya-form-input {
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  background-color: #fafafa; /* Light background for inputs */
+  color: #333;
+  font-size: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+}
+
+.yahya-form-input:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 12px rgba(0, 123, 255, 0.5);
+}
+
+/* Submit Button Styling */
+.yahya-form-submit {
+  font-size: 1.2rem;
+  padding: 14px 30px;
+  border-radius: 50px;
+  background-color: #007bff;
+  border: none;
+  transition: all 0.3s ease-in-out;
+  color: #fff;
+  font-weight: bold;
+  margin-top: 20px;
+  width: 100%;
+}
+
+.yahya-form-submit:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+/* Separator Styling */
+.yahya-separator {
+  width: 100%;
+  border-top: 2px solid #eee;
+  margin: 40px 0;
+}
+
+/* Right Column: Opening Hours */
+.yahya-opening-hours-column {
+  padding: 30px;
+  border-radius: 12px;
+  background-color: #fafafa; /* Light gray background */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.yahya-hours-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* List of Opening Hours */
+.yahya-hours-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+}
+
+.yahya-hours-item {
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+}
+
+.yahya-hours-day {
+  font-weight: bold;
+  color: #007bff;
+  margin-right: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .yahya-contact-form-column,
+  .yahya-opening-hours-column {
+      margin-bottom: 30px;
+  }
+
+  .yahya-form-title {
+      font-size: 2.4rem;
+  }
+
+  .yahya-hours-title {
+      font-size: 2.2rem;
+  }
+
+  .yahya-form-submit {
+      font-size: 1.1rem;
+      padding: 12px 28px;
+  }
+}
+
+/* Contact Page CSS ENDS Here */
+
+
+/* Gallery Page CSS Starts Here */
+
+.saad-background-section {
+  position: relative;
+  height: calc(100vh - 30px);
+  background-image: url('imgs/pic1.jpg'); /* Replace with your image */
+  background-size: cover;
+  background-position: center;
+}
+
+.saad-gallery-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px; /* Optional: rounded corners */
+}
+
+.saad-gallery-item img {
+  width: 100%;
+  height: auto;
+  transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
+}
+
+.saad-gallery-item:hover img {
+  filter: blur(5px); /* Blur effect */
+  transform: scale(1.05); /* Slight zoom on hover */
+}
+
+/* Description styling */
+.saad-gallery-item .saad-description {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  padding: 10px;
+  border-radius: 5px;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  width: 90%;
+  text-align: center;
+}
+
+.saad-gallery-item:hover .saad-description {
+  opacity: 1; /* Show description on hover */
+}
+
+/* Optional: Style the container for the gallery */
+.saad-gallery-container {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+/* Gallery Page CSS Ends Here */
+
+/* About Us Page CSS STARTS HERE */
+
+.wakas-background-section {
+  position: relative;
+  height: calc(100vh - 30px);
+  background-image: url('imgs/pic1.jpg'); /* Replace with your image */
+  background-size: cover;
+  background-position: center;
+}
+
+/* Section Header */
+.wakas-section-header {
+  font-size: 2.5rem;
+  color: #2c3e50;
+  margin-bottom: 20px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-align: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Section Content */
+.wakas-section-content {
+  font-size: 1.15rem;
+  color: #34495e;
+  line-height: 1.8;
+  margin-bottom: 30px;
+  padding: 0 20px;
+  font-family: 'Georgia', 'Times New Roman', serif;
+  text-align: justify;
+  text-justify: inter-word;
+  /* background-color: #f9f9f9; */
+  border-radius: 8px;
+  padding: 30px;
+}
+
+/* Branch Cards */
+.wakas-branch-card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  margin: 20px 0;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-left: 5px solid #2c3e50;
+  background: linear-gradient(135deg, #ffffff, #f8f8f8);
+}
+
+.wakas-branch-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.wakas-branch-card h5 {
+  font-size: 1.7rem;
+  color: #2c3e50;
+  font-weight: 600;
+  margin-bottom: 15px;
+  font-family: 'Roboto', sans-serif;
+}
+
+.wakas-branch-card p {
+  font-size: 1.2rem;
+  color: #7f8c8d;
+  margin-top: 10px;
+  line-height: 1.5;
+  font-family: 'Arial', sans-serif;
+  letter-spacing: 0.5px;
+}
+
+/* Alternating Backgrounds */
+#our-story {
+  background-color: #ffffff;
+  padding: 60px 3%;
+}
+
+#our-policy {
+  background-color: #f9f9f9;
+  padding: 60px 3%;
+}
+
+#our-core-values {
+  background-color: #ffffff;
+  padding: 60px 3%;
+}
+
+#our-branches {
+  background-color: #f4f4f4;
+  padding: 60px 3%;
+}
+
+/* Company Representatives Section */
+#wakas-representatives {
+  background-color: #ffffff;
+  padding: 60px 0%;
+}
+
+.wakas-representative-card {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.wakas-representative-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+}
+
+.wakas-representative-img {
+  width: 100%;
+  max-width: 160px;
+  border-radius: 50%;
+  margin-bottom: 15px;
+}
+
+.wakas-representative-card h5 {
+  font-size: 1.5rem;
+  color: #2c3e50;
+}
+
+.wakas-representative-card p {
+  font-size: 1.1rem;
+  color: #7f8c8d;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .wakas-representative-card {
+    padding: 15px;
+  }
+
+  .wakas-representative-card h5 {
+    font-size: 1.4rem;
+  }
+
+  .wakas-representative-card p {
+    font-size: 1rem;
+  }
+
+  .wakas-section-header {
+    font-size: 2rem;
+  }
+
+  .wakas-section-content {
+    font-size: 1rem;
+    padding: 0 15px;
+  }
+}
+
+section {
+  height: auto;
+  padding: 60px 0%;
+  margin-bottom: 30px;
+}
+
+/* About Us Page CSS ENDS HERE */
+
+/* Products Page CSS STARTS Here */
+
+.hussain-background-section {
+  position: relative;
+  height: calc(100vh - 30px);
+  background-image: url('imgs/pic1.jpg'); /* Replace with your image */
+  background-size: cover;
+  background-position: center;
+}
+
+/* Filter Section */
+/* Filter Dropdown */
+.hussain-filter-section {
+  margin-bottom: 2rem;
+  padding: 1rem;
+  background-color: #f8f9fa; /* Light background for the filter section */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.hussain-filter-section label {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #333; /* Dark text for better contrast */
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.hussain-filter-section .form-select {
+  width: 100%;
+  padding: 0.75rem 1rem; /* Increase padding for better appearance */
+  font-size: 1rem;
+  color: #333; /* Dark text */
+  background-color: white; /* White background */
+  border: 1px solid #ddd; /* Light border */
+  border-radius: 6px; /* Rounded corners */
+  cursor: pointer;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
+}
+
+.hussain-filter-section .form-select:hover {
+  border-color: #007bff; /* Blue border on hover */
+}
+
+.hussain-filter-section .form-select:focus {
+  border-color: #007bff; /* Blue border when focused */
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25); /* Blue glow effect */
+  outline: none; /* Remove default outline */
+}
+
+/* Dropdown Arrow Styling */
+.hussain-filter-section .form-select {
+  appearance: none; /* Remove default arrow */
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23333'%3e%3cpath d='M7 10l5 5 5-5z'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center; /* Position the arrow */
+  background-size: 1.25rem; /* Size of the arrow */
+}
+
+/* Dropdown Options Styling */
+.hussain-filter-section .form-select option {
+  padding: 0.5rem; /* Add padding to options */
+  font-size: 1rem;
+  color: #333; /* Dark text */
+  background-color: white; /* White background */
+}
+
+.hussain-filter-section .form-select option:hover {
+  background-color: #f8f9fa; /* Light background on hover */
+}
+
+/* Product Cards Container */
+.hussain-products-section .row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem; /* Spacing between cards */
+}
+
+/* Individual Product Card */
+.hussain-product-card {
+  flex: 1 1 calc(25% - 1rem); /* 4 cards per row with spacing */
+  background-color: white; /* White background */
+  border: 1px solid #e0e0e0; /* Light border */
+  border-radius: 10px; /* Rounded corners */
+  overflow: hidden; /* Ensure content stays within the card */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
+  display: flex;
+  flex-direction: column; /* Stack content vertically */
+}
+
+.hussain-product-card:hover {
+  transform: translateY(-5px); /* Slight lift on hover */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Subtle shadow on hover */
+}
+
+.hussain-product-card img {
+  width: 100%;
+  height: 200px; /* Fixed height for images */
+  object-fit: cover; /* Ensure images cover the area */
+  border-bottom: 1px solid #e0e0e0; /* Light border below image */
+}
+
+.hussain-product-card .hussain-card-body {
+  padding: 1.5rem; /* Spacing inside the card */
+  text-align: center; /* Center-align content */
+  flex: 1; /* Allow body to grow and push button to the bottom */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Space between title/price and button */
+}
+
+.hussain-product-card .hussain-card-title {
+  font-size: 1.25rem; /* Larger title */
+  font-weight: 600; /* Bold title */
+  color: #333; /* Dark text */
+  margin-bottom: 0.75rem; /* Spacing below title */
+  overflow: hidden; /* Prevent text overflow */
+  text-overflow: ellipsis; /* Add ellipsis for long text */
+  white-space: nowrap; /* Prevent text wrapping */
+}
+
+.hussain-product-card .hussain-card-price {
+  font-size: 1.1rem; /* Slightly larger price */
+  color: #007bff; /* Blue color for price */
+  font-weight: 500; /* Medium weight */
+  margin-bottom: 1.5rem; /* Spacing below price */
+}
+
+.hussain-product-card .hussain-add-to-cart {
+  width: 100%; /* Full-width button */
+  padding: 0.75rem 1rem; /* Padding for button */
+  background-color: #28a745; /* Green background */
+  color: white; /* White text */
+  border: none; /* Remove border */
+  border-radius: 6px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor */
+  font-size: 1rem; /* Button text size */
+  transition: background-color 0.3s ease; /* Smooth hover effect */
+  margin-top: auto; /* Push button to the bottom */
+}
+
+.hussain-product-card .hussain-add-to-cart:hover {
+  background-color: #218838; /* Darker green on hover */
+}
+
+/* Cart Drawer */
+.hussain-cart-drawer {
+  position: fixed;
+  top: 0;
+  right: -400px; /* Hidden by default */
+  width: 400px;
+  height: 100%;
+  background-color: white;
+  box-shadow: -2px 0 8px rgba(0, 0, 0, 0.1);
+  transition: right 0.3s ease;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+}
+
+.hussain-cart-drawer.open {
+  right: 0; /* Show drawer */
+}
+
+.hussain-cart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  border-bottom: 1px solid #ddd;
+  background-color: #f8f9fa;
+}
+
+.hussain-cart-header h3 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.hussain-cart-header .hussain-close-drawer {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.hussain-cart-items {
+  flex: 1;
+  padding: 1rem;
+  overflow-y: auto;
+}
+
+.hussain-cart-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #eee;
+}
+
+.hussain-cart-item img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.hussain-cart-item h5 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.hussain-cart-item p {
+  margin: 0;
+  color: #555;
+}
+
+.hussain-quantity-selector {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-left: auto;
+}
+
+.hussain-quantity-selector button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.hussain-quantity-selector button:hover {
+  background-color: #0056b3;
+}
+
+.hussain-quantity-selector span {
+  font-size: 1rem;
+  font-weight: bold;
+} 
+
+/* Cart Total Section */
+.hussain-cart-total {
+  padding: 1rem;
+  border-top: 1px solid #ddd;
+  text-align: right;
+  background-color: #f8f9fa;
+}
+
+.hussain-cart-total h5 {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+/* Cart Actions (Buttons) */
+.hussain-cart-actions {
+  display: flex;
+  flex-direction: column; /* Stack buttons vertically */
+  gap: 0.5rem; /* Add spacing between buttons */
+  padding: 1rem;
+  border-top: 1px solid #ddd;
+  background-color: #f8f9fa;
+}
+
+.hussain-cart-actions .hussain-checkout-btn {
+  width: 100%; /* Make checkout button full width */
+  padding: 0.75rem 1rem; /* Increase padding for better appearance */
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  text-align: center; /* Center text */
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth hover animation */
+}
+
+.hussain-cart-actions .hussain-checkout-btn:hover {
+  background-color: #218838; /* Darker green on hover */
+  transform: scale(1.02); /* Slight scale-up effect */
+}
+
+.hussain-cart-actions .hussain-empty-cart-btn {
+  background: none; /* Remove background */
+  border: none; /* Remove border */
+  color: #dc3545; /* Red color for text */
+  cursor: pointer;
+  font-size: 1rem;
+  padding: 0; /* Remove padding */
+  text-align: center; /* Center text */
+  position: relative; /* Required for underline animation */
+}
+
+.hussain-cart-actions .hussain-empty-cart-btn::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -2px; /* Position the underline */
+  width: 0; /* Start with no width */
+  height: 2px; /* Thickness of the underline */
+  background-color: #dc3545; /* Red color for underline */
+  transition: width 0.3s ease; /* Smooth underline animation */
+}
+
+.hussain-cart-actions .hussain-empty-cart-btn:hover::after {
+  width: 100%; /* Expand underline to full width on hover */
+}
+
+.hussain-cart-actions .hussain-empty-cart-btn:hover {
+  color: #c82333; /* Darker red on hover */
+}
+
+/* Products Page CSS ENDS Here */
+
+/* Checkout Page CSS STARTS here */
+/* Styles specific to the checkout page */
+.aayan-background-section {
+  position: relative;
+  height: calc(100vh - 30px);
+  background-image: url('imgs/pic1.jpg'); /* Replace with your image */
+  background-size: cover;
+  background-position: center;
+}
+
+.aayan-checkout-page {
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f4f9;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.aayan-checkout-page .aayan-container {
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  max-width: 600px; /* Increased width */
+  width: 100%;
+  margin: 20px; /* Add margin for spacing */
+}
+
+.aayan-checkout-page .aayan-title {
+  font-size: 2rem;
+  color: #333;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.aayan-checkout-page .aayan-summary {
+  margin-bottom: 2rem;
+}
+
+.aayan-checkout-page .aayan-summary-title {
+  font-size: 1.5rem;
+  color: #555;
+  margin-bottom: 1rem;
+}
+
+.aayan-checkout-page .aayan-products {
+  margin-bottom: 1.5rem;
+}
+
+.aayan-checkout-page .aayan-product-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* Align items vertically */
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #eee;
+}
+
+.aayan-checkout-page .aayan-product-name {
+  font-size: 1rem;
+  color: #333;
+}
+
+.aayan-checkout-page .aayan-product-price {
+  font-size: 1rem;
+  color: #777;
+}
+
+.aayan-checkout-page .aayan-total {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #333;
+  padding-top: 1rem;
+}
+
+.aayan-checkout-page .aayan-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.aayan-checkout-page .aayan-form-title {
+  font-size: 1.5rem;
+  color: #555;
+  margin-bottom: 1rem;
+}
+
+.aayan-checkout-page .aayan-form-group {
+  margin-bottom: 1rem;
+}
+
+.aayan-checkout-page .aayan-label {
+  font-size: 1rem;
+  color: #333;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.aayan-checkout-page .aayan-input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.aayan-checkout-page .aayan-input[type="text"] {
+  height: auto; /* Ensure text inputs are properly sized */
+}
+
+.aayan-checkout-page .aayan-input[type="textarea"] {
+  resize: vertical; /* Allow vertical resizing for textarea */
+}
+
+.aayan-checkout-page .aayan-submit-button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.aayan-checkout-page .aayan-submit-button:hover {
+  background-color: #0056b3;
+}
+
+.aayan-checkout-page .aayan-submit-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.aayan-checkout-page .aayan-error {
+  color: red;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+  display: none;
+}
+/* Checkout Page CSS ENDS here */
+
+/* Thankyou page CSS STARTS head */
+
+/* Thank You Container */
+.thank-you-container {
+  font-family: 'Arial', sans-serif;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  max-width: 500px;
+  width: 100%;
+  text-align: center;
+  margin: 0 auto; /* Center the container */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Center vertically and horizontally */
+}
+
+/* Thank You Title */
+.thank-you-title {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+/* Thank You Message */
+.thank-you-message {
+  font-size: 1.2rem;
+  color: #555;
+  margin-bottom: 1.5rem;
+}
+
+/* Thank You Button */
+.thank-you-button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.thank-you-button:hover {
+  background-color: #0056b3;
+}
+/* Thankyou page CSS ENDS head */
+
+/* Create a new comment with page name above this comment and write css code within your area, edit others code if you feel any improvements */
